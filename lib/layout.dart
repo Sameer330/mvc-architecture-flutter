@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvc_arch_flutter/helpers/responsiveness.dart';
 import 'package:mvc_arch_flutter/top_nav.dart';
 import 'package:mvc_arch_flutter/widgets/large_screen.dart';
+import 'package:mvc_arch_flutter/widgets/side_menu.dart';
 import 'package:mvc_arch_flutter/widgets/small_screen.dart';
 
 class SiteLayout extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SiteLayoutState extends State<SiteLayout> {
       key: scaffoldKey,
       appBar: topNavigationBar(context, scaffoldKey),
       drawer: const Drawer(
-        backgroundColor: Colors.black,
+        child: SideMenu(),
       ),
       body: const ResponsiveWidget(
         largeScreen: LargeScreen(),

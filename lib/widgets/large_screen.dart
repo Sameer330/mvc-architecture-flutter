@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvc_arch_flutter/helpers/local_navigator.dart';
+import 'package:mvc_arch_flutter/widgets/side_menu.dart';
 
 class LargeScreen extends StatefulWidget {
   const LargeScreen({Key? key}) : super(key: key);
@@ -12,17 +14,8 @@ class _LargeScreenState extends State<LargeScreen> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: Container(
-            color: Colors.red,
-          ),
-        ),
-        Expanded(
-          flex: 5,
-          child: Container(
-            color: Colors.blue,
-          ),
-        )
+        const Expanded(child: SideMenu()),
+        Expanded(flex: 5, child: localNavigator())
       ],
     );
   }

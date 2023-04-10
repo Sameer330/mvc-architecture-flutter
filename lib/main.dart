@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mvc_arch_flutter/controllers/navigation_controller.dart';
 import 'package:mvc_arch_flutter/layout.dart';
+import 'package:mvc_arch_flutter/controllers/menu_controller.dart';
 
 void main() {
+  Get.put(MyMenuController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
