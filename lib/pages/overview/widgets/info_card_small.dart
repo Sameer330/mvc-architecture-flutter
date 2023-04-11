@@ -17,6 +17,7 @@ class InfoCardSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Expanded(
       child: InkWell(
         onTap: onTap,
@@ -27,7 +28,7 @@ class InfoCardSmall extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isActive ? active : lightGrey,
-              width: 0.3,
+              width: 0.5,
             ),
           ),
           child: Row(
@@ -40,7 +41,7 @@ class InfoCardSmall extends StatelessWidget {
                 color: isActive ? active : lightGrey,
               ),
               CustomText(
-                text: title,
+                text: value,
                 size: 24,
                 weight: FontWeight.bold,
                 color: isActive ? active : lightGrey,

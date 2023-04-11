@@ -45,21 +45,27 @@ class InfoCard extends StatelessWidget {
                       height: 5,
                     ),
                   ),
-                  Expanded(child: Container()),
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "$title\n",
-                          style: TextStyle(
-                              fontSize: 16, color: isActive ? active : dark),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
-              )
+              ),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "$title\n",
+                      style: TextStyle(
+                          fontSize: 16, color: isActive ? active : dark),
+                    ),
+                    TextSpan(
+                      text: value,
+                      style: TextStyle(
+                        fontSize: 40,
+                        color: isActive ? active : dark,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -10,7 +10,10 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
               children: [
                 Container(
                   padding: const EdgeInsets.only(left: 14),
-                  child: const Text("Logo"),
+                  child: const Text(
+                    "Logo",
+                    style: TextStyle(color: dark),
+                  ),
                 ),
               ],
             )
@@ -98,5 +101,5 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
       iconTheme: const IconThemeData(
         color: light,
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.transparent,
     );

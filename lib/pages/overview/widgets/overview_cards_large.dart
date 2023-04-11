@@ -10,9 +10,12 @@ class OverviewCardsLargeScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Row(
       children: [
+        SizedBox(
+          width: width / 64,
+        ),
         InfoCard(
           title: "Rides in progress",
-          value: "?",
+          value: "7",
           topColor: Colors.orange,
           onTap: () {},
         ),
@@ -39,9 +42,12 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         ),
         InfoCard(
           title: "Scheduled deliveries",
-          value: "?",
+          value: "7",
           topColor: Colors.orange,
           onTap: () {},
+        ),
+        SizedBox(
+          width: width / 64,
         ),
       ],
     );

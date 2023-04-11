@@ -15,7 +15,13 @@ class _LargeScreenState extends State<LargeScreen> {
     return Row(
       children: [
         const Expanded(child: SideMenu()),
-        Expanded(flex: 5, child: localNavigator())
+        Expanded(
+          flex: 5,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: localNavigator(),
+          ),
+        ),
       ],
     );
   }
