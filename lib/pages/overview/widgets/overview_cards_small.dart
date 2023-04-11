@@ -29,14 +29,14 @@ class OverviewCardsSmallScreen extends StatelessWidget {
           SizedBox(
             height: width / 64,
           ),
-          SizedBox(
-            height: width / 64,
-          ),
           InfoCardSmall(
             title: "Cancelled deliveries",
             value: "3",
             isActive: true,
             onTap: () {},
+          ),
+          SizedBox(
+            height: width / 64,
           ),
           InfoCardSmall(
             title: "Scheduled deliveries",

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mvc_arch_flutter/constants/style.dart';
 import 'package:mvc_arch_flutter/controllers/navigation_controller.dart';
-import 'package:mvc_arch_flutter/layout.dart';
 import 'package:mvc_arch_flutter/controllers/menu_controller.dart';
+import 'package:mvc_arch_flutter/pages/authentication/authentication.dart';
 
 void main() {
   Get.put(MyMenuController());
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         ),
         primaryColor: Colors.blue,
       ),
-      home: SiteLayout(),
+      home: AuthenticationPage(),
     );
   }
 }

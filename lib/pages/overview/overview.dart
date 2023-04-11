@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:mvc_arch_flutter/constants/controllers.dart';
 import 'package:mvc_arch_flutter/helpers/responsiveness.dart';
 import 'package:mvc_arch_flutter/pages/overview/widgets/overview_cards_large.dart';
 import 'package:mvc_arch_flutter/pages/overview/widgets/overview_cards_medium.dart';
 import 'package:mvc_arch_flutter/pages/overview/widgets/overview_cards_small.dart';
+import 'package:mvc_arch_flutter/pages/overview/widgets/revenue_section_large.dart';
+import 'package:mvc_arch_flutter/pages/overview/widgets/revenue_section_small.dart';
+import 'package:mvc_arch_flutter/pages/overview/widgets/available_drivers.dart';
 import 'package:mvc_arch_flutter/widgets/custom_text.dart';
 
 class OverViewPage extends StatelessWidget {
@@ -32,6 +36,8 @@ class OverViewPage extends StatelessWidget {
         Expanded(
           child: ListView(
             children: [
+              // Overview Cards
+
               if (ResponsiveWidget.isLargeScreen(context) ||
                   ResponsiveWidget.isMediumScreen(context))
                 if (ResponsiveWidget.isCustomSize(context))
@@ -39,7 +45,17 @@ class OverViewPage extends StatelessWidget {
                 else
                   const OverviewCardsLargeScreen()
               else
-                const OverviewCardsSmallScreen()
+                const OverviewCardsSmallScreen(),
+
+              // Revenue Section
+
+              if (ResponsiveWidget.isSmallScreen(context))
+                const RevenueSectionSmall()
+              else
+                const RevenueSectionLarge(),
+
+              // TODO: DataTable is too heavy for rendering. Find Alternatives.
+              // const AvailableDrivers(),
             ],
           ),
         ),

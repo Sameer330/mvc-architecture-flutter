@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mvc_arch_flutter/constants/controllers.dart';
 import 'package:mvc_arch_flutter/constants/style.dart';
 import 'package:mvc_arch_flutter/helpers/responsiveness.dart';
+import 'package:mvc_arch_flutter/pages/authentication/authentication.dart';
 import 'package:mvc_arch_flutter/routing/routes.dart';
 import 'package:mvc_arch_flutter/widgets/custom_text.dart';
 import 'package:mvc_arch_flutter/widgets/side_menu_item.dart';
@@ -53,30 +54,24 @@ class SideMenu extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: sideMenuItems
-                .map(
-                  (itemName) => SideMenuItem(
-                    itemName: itemName == AuthenticationPageRoute
-                        ? "Log Out"
-                        : itemName,
-                    onTap: () {
-                      if (itemName == AuthenticationPageRoute) {
-                        // TODO: go to authentication page
-                      }
-                      if (ResponsiveWidget.isSmallScreen(context)) {
-                        Get.back();
-                        // TODO: go to item name route
-                      }
-
-                      if (!menuController.isActive(itemName)) {
-                        menuController.changeActiveItemTo(itemName);
-                        if (ResponsiveWidget.isSmallScreen(context)) {
-                          Get.back();
+                .map((itemName) => SideMenuItem(
+                      itemName: itemName == AuthenticationPageRoute
+                          ? "Log Out"
+                          : itemName,
+                      onTap: () {
+                        if (itemName == AuthenticationPageRoute) {
+                          Get.offAll(() => AuthenticationPage());
                         }
-                        navigationController.navigateTo(itemName);
-                      }
-                    },
-                  ),
-                )
+
+                        if (!menuController.isActive(itemName)) {
+                          menuController.changeActiveItemTo(itemName);
+                          if (ResponsiveWidget.isSmallScreen(context)) {
+                            Get.back();
+                          }
+                          navigationController.navigateTo(itemName);
+                        }
+                      },
+                    ))
                 .toList(),
           )
         ],
