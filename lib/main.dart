@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mvc_arch_flutter/constants/style.dart';
 import 'package:mvc_arch_flutter/controllers/navigation_controller.dart';
 import 'package:mvc_arch_flutter/controllers/menu_controller.dart';
+import 'package:mvc_arch_flutter/layout.dart';
+import 'package:mvc_arch_flutter/pages/404/error_page.dart';
 import 'package:mvc_arch_flutter/pages/authentication/authentication.dart';
+import 'package:mvc_arch_flutter/routing/routes.dart';
 
 void main() {
   Get.put(MyMenuController());
@@ -23,6 +26,17 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AuthenticationPageRoute,
+      unknownRoute: GetPage(
+        name: "/not-found",
+        page: () => const PageNotFound(),
+        transition: Transition.fadeIn,
+      ),
+      getPages: [
+        GetPage(name: RootRoute, page: () => SiteLayout()),
+        GetPage(
+            name: AuthenticationPageRoute, page: () => AuthenticationPage()),
+      ],
       debugShowCheckedModeBanner: false,
       title: "Dash",
       theme: ThemeData(
@@ -39,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         ),
         primaryColor: Colors.blue,
       ),
-      home: AuthenticationPage(),
+      // home: const AuthenticationPage(),
     );
   }
 }
